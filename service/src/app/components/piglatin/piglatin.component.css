@@ -1,0 +1,33 @@
+.container {
+    border-radius: 5px;
+    background-color: grey;
+    padding: 20px;
+}
+
+.row {
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 20px;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    cursor: pointer;
+}
+
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    box-sizing: border-box;
+    margin-top: 6px; 
+    margin-bottom: 16px;
+    resize: vertical 
+}

@@ -1,0 +1,27 @@
+<form (ngSubmit)="convert(submitForm.value)" #submitForm="ngForm">
+	<div class="container">
+		<div class="row">
+			<table>
+				<tbody>
+					<tr>
+						<th><label for="word">Enter the word you want to convert: </label></th>
+						<td><input type="text" id="word" name="word" placeholder="your word to piglatin format..." [(ngModel)]="word"></td>
+						
+						<td>
+							<input type="submit" value="Convert To PigLatin">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+
+	</div>
+	<div class="container">
+		<ul>
+			<li *ngFor="let item of words">{{item}}</li>
+		</ul>
+
+	</div>
+</form>
