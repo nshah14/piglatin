@@ -94693,7 +94693,7 @@
 	            console.log('token :: ' + outSentence);
 	        }
 	        console.log('outSentence :: ' + outSentence);
-	        if (this.words.length > 1) {
+	        if (this.words.length > 10) {
 	            console.log('this is ' + this.words.indexOf(this.words));
 	            this.words.splice(this.words.indexOf(this.words), 1);
 	        }
