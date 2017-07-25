@@ -22,6 +22,12 @@ export class PigLatinComponent implements OnInit {
 	}
 	constructor() {
 	}
+
+	tokenizer(sentence) {
+		var array = sentence.split(' ');
+		console.log("sentence into words" + array)
+		return array;
+	}
 	/**
 	 * Convert from a word to pig altin format.
 	 * @param form 
@@ -29,14 +35,23 @@ export class PigLatinComponent implements OnInit {
 	convert(form) {
 		console.log("form " + form);
 		console.log("word " + form.word);
-		if (this.words.length > 10) {
+		var sentence = form.word;
 
+		var outSentence=" ";
+		for (let token of this.tokenizer(sentence)) {
+			outSentence = outSentence+this.translate(token);
+			console.log('token :: '+ outSentence);
+		}
+		console.log('outSentence :: '+ outSentence);
+		if (this.words.length > 1) {
+			console.log('this is '+this.words.indexOf(this.words));
 			this.words.splice(this.words.indexOf(this.words), 1);
 		}
-		this.words.push(this.translate(form.word));
-		this.word = null;
 
+		this.words.push(outSentence);
+		this.word = null;
 	}
+
 
 	/**
 	 *  check if its in Array of values
@@ -57,9 +72,9 @@ export class PigLatinComponent implements OnInit {
 		var array = word.split('');
 		var vowels = ['a', 'e', 'i', 'o', 'u'];
 		var newWord = '';
-		var suffix = "ay";
+		var suffix = "ay ";
 		if (this.isInArray(vowels, word.charAt(0))) {
-			suffix = "i";
+			suffix = "i ";
 		}
 		console.log(word.substr(1) + word.charAt(0) + suffix);
 		return word.substr(1) + word.charAt(0) + suffix;

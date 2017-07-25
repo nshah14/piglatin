@@ -94673,6 +94673,11 @@
 	    }
 	    PigLatinComponent.prototype.ngOnInit = function () {
 	    };
+	    PigLatinComponent.prototype.tokenizer = function (sentence) {
+	        var array = sentence.split(' ');
+	        console.log("sentence into words" + array);
+	        return array;
+	    };
 	    /**
 	     * Convert from a word to pig altin format.
 	     * @param form
@@ -94680,10 +94685,19 @@
 	    PigLatinComponent.prototype.convert = function (form) {
 	        console.log("form " + form);
 	        console.log("word " + form.word);
-	        if (this.words.length > 10) {
+	        var sentence = form.word;
+	        var outSentence = " ";
+	        for (var _i = 0, _a = this.tokenizer(sentence); _i < _a.length; _i++) {
+	            var token = _a[_i];
+	            outSentence = outSentence + this.translate(token);
+	            console.log('token :: ' + outSentence);
+	        }
+	        console.log('outSentence :: ' + outSentence);
+	        if (this.words.length > 1) {
+	            console.log('this is ' + this.words.indexOf(this.words));
 	            this.words.splice(this.words.indexOf(this.words), 1);
 	        }
-	        this.words.push(this.translate(form.word));
+	        this.words.push(outSentence);
 	        this.word = null;
 	    };
 	    /**
@@ -94703,9 +94717,9 @@
 	        var array = word.split('');
 	        var vowels = ['a', 'e', 'i', 'o', 'u'];
 	        var newWord = '';
-	        var suffix = "ay";
+	        var suffix = "ay ";
 	        if (this.isInArray(vowels, word.charAt(0))) {
-	            suffix = "i";
+	            suffix = "i ";
 	        }
 	        console.log(word.substr(1) + word.charAt(0) + suffix);
 	        return word.substr(1) + word.charAt(0) + suffix;
