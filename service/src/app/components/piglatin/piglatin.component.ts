@@ -37,7 +37,7 @@ export class PigLatinComponent implements OnInit {
 		console.log("word " + form.word);
 		var sentence = form.word;
 
-		var outSentence=" ";
+		var outSentence="";
 		for (let token of this.tokenizer(sentence)) {
 			outSentence = outSentence+this.translate(token);
 			console.log('token :: '+ outSentence);

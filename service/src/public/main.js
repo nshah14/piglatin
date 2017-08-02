@@ -94686,7 +94686,7 @@
 	        console.log("form " + form);
 	        console.log("word " + form.word);
 	        var sentence = form.word;
-	        var outSentence = " ";
+	        var outSentence = "";
 	        for (var _i = 0, _a = this.tokenizer(sentence); _i < _a.length; _i++) {
 	            var token = _a[_i];
 	            outSentence = outSentence + this.translate(token);
