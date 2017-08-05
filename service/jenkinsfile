@@ -9,29 +9,29 @@ node('node') {
 
        stage('Checkout'){
 
-          checkout scm
+            def commitHash = checkout(scm).GIT_COMMIT
+    
        }
 
-       stage('Test'){
-
-         env.NODE_ENV = "test"
-
-         print "Environment will be : ${env.NODE_ENV}"
-
-         sh 'npm install'
-         sh 'npm test'
-
-       }
+    
 
        stage('Build Docker'){
 
-            
+           /**
+               docker-machine env
+               docker build -t nshah/piglatin .
+               eval $(docker-machine env)
+               docker build -t nshah/piglatin .
+               
+           */ 
        }
 
        stage('Deploy'){
 
          echo 'Push to Repo'
-         
+         /**
+            docker run -p 3000:3000 -d nshah/piglatin
+         */
 
        }
 
@@ -46,6 +46,17 @@ node('node') {
                      to: 'yyyyy@yyyy.com'
        }
 
+
+       stage('Test'){
+
+         env.NODE_ENV = "test"
+
+         print "Environment will be : ${env.NODE_ENV}"
+          /** for running the jasmine test.
+            jasmine
+          */
+
+       }
 
 
     }
